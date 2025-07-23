@@ -1,0 +1,251 @@
+/* Animation Hub - Professional Corporate Animations Library */
+/* Estilos base para animações corporativas */
+
+/* Reset e base */
+* {
+  box-sizing: border-box;
+}
+
+/* Design Corporativo Escuro */
+.animation-hub-base {
+  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+}
+
+/* Gradientes corporativos escuros */
+.gradient-primary {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+}
+
+.gradient-secondary {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.gradient-accent {
+  background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 100%);
+}
+
+/* Overlay patterns para profundidade */
+.pattern-overlay {
+  position: relative;
+}
+
+.pattern-overlay::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(
+      circle at 25% 25%,
+      rgba(59, 130, 246, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 75% 75%,
+      rgba(14, 165, 233, 0.1) 0%,
+      transparent 50%
+    );
+  pointer-events: none;
+}
+
+/* Cards com glassmorphism corporativo */
+.glass-card {
+  background: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Botões corporativos */
+.btn-primary {
+  background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 100%);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.btn-secondary {
+  background: rgba(51, 65, 85, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #cbd5e1;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: rgba(51, 65, 85, 0.8);
+  border-color: rgba(148, 163, 184, 0.3);
+  transform: translateY(-1px);
+  color: white;
+}
+
+/* Animações fluidas */
+.smooth-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+/* Cores corporativas */
+.text-corporate-50 {
+  color: #f8fafc;
+}
+.text-corporate-100 {
+  color: #f1f5f9;
+}
+.text-corporate-200 {
+  color: #e2e8f0;
+}
+.text-corporate-300 {
+  color: #cbd5e1;
+}
+.text-corporate-400 {
+  color: #94a3b8;
+}
+.text-corporate-500 {
+  color: #64748b;
+}
+.text-corporate-600 {
+  color: #475569;
+}
+.text-corporate-700 {
+  color: #334155;
+}
+.text-corporate-800 {
+  color: #1e293b;
+}
+.text-corporate-900 {
+  color: #0f172a;
+}
+.text-corporate-950 {
+  color: #020617;
+}
+
+.text-accent-300 {
+  color: #93c5fd;
+}
+.text-accent-400 {
+  color: #60a5fa;
+}
+.text-accent-500 {
+  color: #3b82f6;
+}
+
+.bg-corporate-700 {
+  background-color: #334155;
+}
+.bg-corporate-800 {
+  background-color: #1e293b;
+}
+.bg-corporate-900 {
+  background-color: #0f172a;
+}
+.bg-corporate-950 {
+  background-color: #020617;
+}
+
+.bg-dark-900 {
+  background-color: #111827;
+}
+.bg-dark-950 {
+  background-color: #0f0f23;
+}
+
+/* Border colors */
+.border-corporate-700 {
+  border-color: #334155;
+}
+
+/* Keyframes para animações */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.8);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+.shadow-glow-sm {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+/* Container responsivo */
+.container-responsive {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-responsive {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-responsive {
+    padding: 0 2rem;
+  }
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .animation-hub-base {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .animation-hub-base {
+    font-size: 13px;
+  }
+}

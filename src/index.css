@@ -1,1 +1,442 @@
 @import "tailwindcss";
+
+/* Design Corporativo Escuro Completo */
+
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+/* Responsive font sizes */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+body {
+  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+  color: #e2e8f0;
+  min-height: 100vh;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Container responsivo */
+.container-responsive {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-responsive {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-responsive {
+    padding: 0 2rem;
+  }
+}
+
+/* Cores corporativas como classes CSS */
+.bg-corporate-50 {
+  background-color: #f8fafc;
+}
+.bg-corporate-100 {
+  background-color: #f1f5f9;
+}
+.bg-corporate-200 {
+  background-color: #e2e8f0;
+}
+.bg-corporate-300 {
+  background-color: #cbd5e1;
+}
+.bg-corporate-400 {
+  background-color: #94a3b8;
+}
+.bg-corporate-500 {
+  background-color: #64748b;
+}
+.bg-corporate-600 {
+  background-color: #475569;
+}
+.bg-corporate-700 {
+  background-color: #334155;
+}
+.bg-corporate-800 {
+  background-color: #1e293b;
+}
+.bg-corporate-900 {
+  background-color: #0f172a;
+}
+.bg-corporate-950 {
+  background-color: #020617;
+}
+
+.text-corporate-50 {
+  color: #f8fafc;
+}
+.text-corporate-100 {
+  color: #f1f5f9;
+}
+.text-corporate-200 {
+  color: #e2e8f0;
+}
+.text-corporate-300 {
+  color: #cbd5e1;
+}
+.text-corporate-400 {
+  color: #94a3b8;
+}
+.text-corporate-500 {
+  color: #64748b;
+}
+.text-corporate-600 {
+  color: #475569;
+}
+.text-corporate-700 {
+  color: #334155;
+}
+.text-corporate-800 {
+  color: #1e293b;
+}
+.text-corporate-900 {
+  color: #0f172a;
+}
+.text-corporate-950 {
+  color: #020617;
+}
+
+.border-corporate-700\/20 {
+  border-color: rgba(51, 65, 85, 0.2);
+}
+.border-corporate-700\/30 {
+  border-color: rgba(51, 65, 85, 0.3);
+}
+
+/* Cores accent */
+.bg-accent-300 {
+  background-color: #93c5fd;
+}
+.bg-accent-400 {
+  background-color: #60a5fa;
+}
+.bg-accent-500 {
+  background-color: #3b82f6;
+}
+.bg-accent-600 {
+  background-color: #2563eb;
+}
+.bg-accent-700 {
+  background-color: #1d4ed8;
+}
+.bg-accent-950 {
+  background-color: #172554;
+}
+
+.text-accent-300 {
+  color: #93c5fd;
+}
+.text-accent-400 {
+  color: #60a5fa;
+}
+.text-accent-500 {
+  color: #3b82f6;
+}
+.text-accent-600 {
+  color: #2563eb;
+}
+
+.border-accent-500\/20 {
+  border-color: rgba(59, 130, 246, 0.2);
+}
+.border-accent-700\/30 {
+  border-color: rgba(29, 78, 216, 0.3);
+}
+
+/* Cores dark */
+.bg-dark-900 {
+  background-color: #0f172a;
+}
+.bg-dark-950 {
+  background-color: #0f0f23;
+}
+
+.bg-dark-900\/50 {
+  background-color: rgba(15, 23, 42, 0.5);
+}
+.bg-dark-900\/80 {
+  background-color: rgba(15, 23, 42, 0.8);
+}
+
+/* Gradientes corporativos */
+.bg-gradient-accent {
+  background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 100%);
+}
+
+.gradient-primary {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+}
+
+.gradient-secondary {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+/* Overlay patterns para profundidade */
+.pattern-overlay {
+  position: relative;
+}
+
+.pattern-overlay::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(
+      circle at 25% 25%,
+      rgba(59, 130, 246, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 75% 75%,
+      rgba(14, 165, 233, 0.1) 0%,
+      transparent 50%
+    );
+  pointer-events: none;
+}
+
+/* Cards com glassmorphism corporativo */
+.glass-card {
+  background: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Botões corporativos */
+.btn-primary {
+  background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 100%);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.btn-secondary {
+  background: rgba(51, 65, 85, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #cbd5e1;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: rgba(51, 65, 85, 0.8);
+  border-color: rgba(148, 163, 184, 0.3);
+  transform: translateY(-1px);
+  color: white;
+}
+
+/* Shadows especiais */
+.shadow-glow-sm {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+.shadow-accent-500\/20 {
+  box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.2),
+    0 4px 6px -2px rgba(59, 130, 246, 0.1);
+}
+
+/* Animações */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(30, 41, 59, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #0ea5e9, #3b82f6);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #0284c7, #2563eb);
+}
+
+/* Animações fluidas */
+.smooth-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+/* Classes de background específicas */
+.bg-corporate-900\/20 {
+  background-color: rgba(15, 23, 42, 0.2);
+}
+
+.bg-corporate-900\/30 {
+  background-color: rgba(15, 23, 42, 0.3);
+}
+
+.bg-corporate-800\/50 {
+  background-color: rgba(30, 41, 59, 0.5);
+}
+
+.bg-corporate-700\/50 {
+  background-color: rgba(51, 65, 85, 0.5);
+}
+
+.bg-accent-950\/30 {
+  background-color: rgba(23, 37, 84, 0.3);
+}
+
+/* Gradientes específicos para as animações */
+.bg-gradient-to-r.from-corporate-700.to-corporate-600 {
+  background: linear-gradient(to right, #334155, #475569);
+}
+
+.bg-gradient-to-r.from-accent-600.to-accent-700 {
+  background: linear-gradient(to right, #2563eb, #1d4ed8);
+}
+
+.bg-gradient-to-r.from-corporate-600.to-accent-600 {
+  background: linear-gradient(to right, #475569, #2563eb);
+}
+
+/* Utilitários de tamanho e posicionamento */
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.inset-0 {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.z-10 {
+  z-index: 10;
+}
+
+.z-50 {
+  z-index: 50;
+}
+
+/* Flexbox e grid */
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Responsividade para o layout principal */
+@media (max-width: 640px) {
+  .hero-padding {
+    padding: 4rem 1rem 2rem;
+  }
+
+  .section-padding {
+    padding: 3rem 1rem;
+  }
+}

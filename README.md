@@ -1,51 +1,47 @@
-# React + TypeScript + Vite
+# Animation Hub 🎨⚡
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![npm version](https://badge.fury.io/js/%40glatztp%2Fanimation-hub.svg)](https://badge.fury.io/js/%40glatztp%2Fanimation-hub)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=flat&logo=greensock&logoColor=white)](https://greensock.com/gsap/)
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-# 🎭 AnimatedContent - Componente React para Animações GSAP
-
-Componente React único e flexível para animações profissionais com GSAP e ScrollTrigger.
+Biblioteca profissional de animações corporativas para React com GSAP e TypeScript. Desenvolvida especificamente para ambientes corporativos que demandam performance, acessibilidade e profissionalismo.
 
 ## ✨ Características
 
-- 🎯 **12 animações pré-definidas** - fadeIn, slideUp, scaleIn, rotateIn, bounceIn, flipIn, zoomIn, morphIn, stagger e mais
-- ⚡ **Recarregamento de animações** - Botão para rodar todas as animações novamente
-- 🎨 **Totalmente customizável** - Props `from`/`to` para controle total
-- 📱 **Responsivo** - Funciona em todos os dispositivos
-- 🔧 **TypeScript completo** - Tipagem total e autocomplete
-- 🚀 **Performance otimizada** - Cleanup automático de animações
-- 🎪 **Scroll opcional** - Pode animar com scroll ou imediatamente
-- 📋 **Stagger avançado** - Animação sequencial de elementos filhos
+- 🎯 **12+ Animações Profissionais** - Coleção completa de animações corporativas
+- 📱 **100% Responsivo** - Funciona perfeitamente em todos os dispositivos
+- 🚀 **Performance Otimizada** - Construído com GSAP para máxima performance
+- � **TypeScript Nativo** - Tipagem completa e IntelliSense
+- ♿ **Acessível** - Respeita preferências de movimento reduzido
+- 🎨 **Altamente Customizável** - Controle total sobre todas as propriedades
+- 📦 **Zero Configuração** - Funciona imediatamente após instalação
+- 🌙 **Design Corporativo** - Estilos profissionais incluídos
 
 ## 🚀 Instalação
 
 ```bash
-npm install gsap
+# npm
+npm install @glatztp/animation-hub
+
+# yarn
+yarn add @glatztp/animation-hub
+
+# pnpm
+pnpm add @glatztp/animation-hub
 ```
 
-## 📦 Estrutura Final
+### Dependências
 
-```
-src/
-├── App.tsx                    # Demo completo com reload
-└── components/
-    └── AnimatedContent.tsx    # Componente principal único
+```bash
+npm install react react-dom gsap
 ```
 
-## 🎯 Uso Básico
+## 📖 Uso Básico
 
 ```tsx
-import AnimatedContent from './components/AnimatedContent';
+import { AnimatedContent } from '@glatztp/animation-hub';
+import '@glatztp/animation-hub/styles';
 
 // Animação simples
 <AnimatedContent animation="fadeIn">
@@ -53,7 +49,7 @@ import AnimatedContent from './components/AnimatedContent';
 </AnimatedContent>
 
 // Configurada
-<AnimatedContent 
+<AnimatedContent
   animation="slideUp"
   distance={100}
   duration={1.2}
@@ -65,72 +61,72 @@ import AnimatedContent from './components/AnimatedContent';
 
 ## 🎪 Animações Disponíveis
 
-| Animação | Descrição | Props Úteis |
-|----------|-----------|-------------|
-| `fadeIn` | Fade suave | `duration`, `delay` |
-| `slideUp` | Desliza de baixo | `distance`, `duration` |
-| `slideDown` | Desliza de cima | `distance`, `duration` |
-| `slideLeft` | Desliza da direita | `distance`, `duration` |
-| `slideRight` | Desliza da esquerda | `distance`, `duration` |
-| `scaleIn` | Cresce suavemente | `scale`, `duration` |
-| `rotateIn` | Rotação + fade | `rotation`, `duration` |
-| `bounceIn` | Entrada com bounce | `duration`, `ease` |
-| `flipIn` | Flip 3D | `duration` |
-| `zoomIn` | Zoom dramático | `duration` |
-| `morphIn` | Transformação complexa | `duration`, `ease` |
-| `stagger` | Sequencial para filhos | `stagger`, `staggerFrom` |
+| Animação     | Descrição              | Props Úteis              |
+| ------------ | ---------------------- | ------------------------ |
+| `fadeIn`     | Fade suave             | `duration`, `delay`      |
+| `slideUp`    | Desliza de baixo       | `distance`, `duration`   |
+| `slideDown`  | Desliza de cima        | `distance`, `duration`   |
+| `slideLeft`  | Desliza da direita     | `distance`, `duration`   |
+| `slideRight` | Desliza da esquerda    | `distance`, `duration`   |
+| `scaleIn`    | Cresce suavemente      | `scale`, `duration`      |
+| `rotateIn`   | Rotação + fade         | `rotation`, `duration`   |
+| `bounceIn`   | Entrada com bounce     | `duration`, `ease`       |
+| `flipIn`     | Flip 3D                | `duration`               |
+| `zoomIn`     | Zoom dramático         | `duration`               |
+| `morphIn`    | Transformação complexa | `duration`, `ease`       |
+| `stagger`    | Sequencial para filhos | `stagger`, `staggerFrom` |
 
 ## ⚙️ Props Principais
 
 ### Animação
+
 - `animation` - Tipo de animação
 - `distance` - Distância do movimento (px)
 - `scale` - Escala inicial (0-1)
 - `rotation` - Rotação inicial (graus)
 
 ### Timing
+
 - `duration` - Duração (segundos)
 - `delay` - Atraso (segundos)
 - `ease` - Curva de animação
 
 ### Scroll
+
 - `enableScroll` - Usa scroll trigger (padrão: true)
 - `threshold` - % visibilidade para disparar (padrão: 0.2)
 - `once` - Anima apenas uma vez (padrão: true)
 - `scrub` - Sincroniza com scroll (padrão: false)
 
 ### Stagger
+
 - `stagger` - Intervalo entre filhos (padrão: 0.1)
 - `staggerFrom` - Origem ('start' | 'center' | 'end' | 'random')
 
 ### Customização Total
+
 - `from` - Estado inicial customizado
 - `to` - Estado final customizado
 
 ### Props de Div
+
 - `className`, `id`, `style` - Estilização
 - `onClick`, `onMouseEnter`, `onMouseLeave` - Eventos
 
 ## 💡 Exemplos Avançados
 
 ### Sem Scroll (Imediata)
+
 ```tsx
-<AnimatedContent 
-  animation="scaleIn"
-  enableScroll={false}
-  delay={2}
->
+<AnimatedContent animation="scaleIn" enableScroll={false} delay={2}>
   <div>Anima após 2s automaticamente</div>
 </AnimatedContent>
 ```
 
 ### Stagger (Filhos)
+
 ```tsx
-<AnimatedContent 
-  animation="stagger"
-  stagger={0.2}
-  staggerFrom="center"
->
+<AnimatedContent animation="stagger" stagger={0.2} staggerFrom="center">
   <div>Item 1</div>
   <div>Item 2</div>
   <div>Item 3</div>
@@ -138,17 +134,18 @@ import AnimatedContent from './components/AnimatedContent';
 ```
 
 ### Animação Customizada
+
 ```tsx
 <AnimatedContent
-  from={{ 
-    opacity: 0, 
-    scale: 2, 
-    rotation: 180 
+  from={{
+    opacity: 0,
+    scale: 2,
+    rotation: 180,
   }}
-  to={{ 
-    opacity: 1, 
-    scale: 1, 
-    rotation: 0 
+  to={{
+    opacity: 1,
+    scale: 1,
+    rotation: 0,
   }}
   duration={2}
   ease="elastic.out(1, 0.3)"
@@ -158,12 +155,9 @@ import AnimatedContent from './components/AnimatedContent';
 ```
 
 ### Com Scrub (Segue Scroll)
+
 ```tsx
-<AnimatedContent 
-  animation="slideLeft"
-  scrub={true}
-  distance={200}
->
+<AnimatedContent animation="slideLeft" scrub={true} distance={200}>
   <div>Move conforme o scroll</div>
 </AnimatedContent>
 ```
@@ -176,23 +170,23 @@ O projeto inclui um sistema de reload das animações:
 const [reloadKey, setReloadKey] = useState(0);
 
 const reloadAnimations = () => {
-  setReloadKey(prev => prev + 1);
+  setReloadKey((prev) => prev + 1);
 };
 
 <AnimatedContent key={reloadKey} animation="fadeIn">
   <div>Animação que pode ser recarregada</div>
-</AnimatedContent>
+</AnimatedContent>;
 ```
 
 ## 🎨 Curvas de Animação
 
 ```tsx
-ease="power1.out"              // Suave
-ease="power2.out"              // Médio  
-ease="power3.out"              // Forte
-ease="back.out(1.7)"           // Volta
-ease="elastic.out(1, 0.3)"     // Elástico
-ease="bounce.out"              // Quique
+ease = "power1.out"; // Suave
+ease = "power2.out"; // Médio
+ease = "power3.out"; // Forte
+ease = "back.out(1.7)"; // Volta
+ease = "elastic.out(1, 0.3)"; // Elástico
+ease = "bounce.out"; // Quique
 ```
 
 ## 🏗️ Como Funciona
@@ -224,7 +218,8 @@ ease="bounce.out"              // Quique
 - ✅ Código copiável para cada exemplo
 
 **Pronto para usar!** 🎉
-```
+
+````
 
 You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
@@ -253,5 +248,6 @@ export default tseslint.config([
     },
   },
 ])
-```
-"# animations" 
+````
+
+"# animations"
