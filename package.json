@@ -1,15 +1,15 @@
 {
-  "name": "@glatztp/animation-hub",
+  "name": "@gltz-packages/animation-hub",
   "version": "1.0.0",
-  "description": "Biblioteca profissional de animações corporativas para React com GSAP e TypeScript",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
+  "description": "Biblioteca profissional de animacoes corporativas para React com GSAP e TypeScript",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     }
   },
   "files": [
@@ -48,9 +48,8 @@
     "scroll-animations",
     "performance",
     "accessibility",
-    "modern",
-    "responsive",
-    "professional"
+    "library",
+    "gltz-packages"
   ],
   "author": {
     "name": "Gabriel Latz",
@@ -58,51 +57,24 @@
     "url": "https://github.com/glatztp"
   },
   "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/glatztp/animation-hub.git"
   },
-  "bugs": {
-    "url": "https://github.com/glatztp/animation-hub/issues",
-    "email": "bugs@gltz.dev"
-  },
-  "homepage": "https://animation-hub.gltz.dev",
-  "funding": {
-    "type": "github",
-    "url": "https://github.com/sponsors/glatztp"
-  },
-  "engines": {
-    "node": ">=18.0.0",
-    "npm": ">=8.0.0"
-  },
   "devDependencies": {
     "@eslint/js": "^9.30.1",
-    "@rollup/plugin-commonjs": "^25.0.7",
-    "@rollup/plugin-node-resolve": "^15.2.3",
-    "@rollup/plugin-typescript": "^11.1.6",
-    "@types/react": "^19.1.8",
-    "@types/react-dom": "^19.1.6",
-    "@vitejs/plugin-react": "^4.6.0",
-    "autoprefixer": "^10.4.21",
-    "eslint": "^9.30.1",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.20",
-    "globals": "^16.3.0",
-    "postcss": "^8.5.6",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "rimraf": "^5.0.5",
-    "rollup": "^4.9.1",
-    "rollup-plugin-postcss": "^4.0.2",
-    "tailwindcss": "^4.1.11",
     "tsup": "^8.5.0",
-    "typescript": "~5.8.3",
-    "typescript-eslint": "^8.35.1",
-    "vite": "^7.0.4"
+    "typescript": "~5.7.2",
+    "vite": "^7.0.4",
+    "eslint": "^9.17.0"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.1.11",
     "gsap": "^3.13.0",
-    "phosphor-react": "^1.4.1"
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   }
 }
