@@ -1,0 +1,7 @@
+{
+  "framework": "vite",
+  "buildCommand": "npm run demo:build",
+  "devCommand": "npm run demo:dev",
+  "installCommand": "npm install --legacy-peer-deps",
+  "outputDirectory": "./dist-demo"
+}
