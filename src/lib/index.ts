@@ -1,7 +1,13 @@
 // Animation Hub - Professional React Animation Library
 // Main library exports
 
-export { default as AnimatedContent } from "./AnimatedContent";
+import AnimatedContentComponent from "./AnimatedContent";
+
+// Export as named export for better compatibility
+export const AnimatedContent = AnimatedContentComponent;
+
+// Also provide default export
+export { AnimatedContentComponent as default };
 
 // Re-export types for convenience
 export type {
@@ -12,7 +18,7 @@ export type {
 } from "./types";
 
 // Library metadata
-export const ANIMATION_HUB_VERSION = "1.0.0";
+export const ANIMATION_HUB_VERSION = "1.0.1";
 export const SUPPORTED_ANIMATIONS = [
   "fadeIn",
   "slideUp",
