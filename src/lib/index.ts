@@ -1,24 +1,35 @@
-// Animation Hub - TEST VERSION
-// Versão simplificada para testar se a biblioteca funciona
+// Animation Hub - Professional React Animation Library
+// Main library exports
 
-import TestComponentDefault from "./TestComponent";
+import AnimatedContentComponent from "./AnimatedContent";
 
-// Export principal para teste
-export const AnimatedContent = TestComponentDefault;
-export const TestComponent = TestComponentDefault;
+// Export as named export for better compatibility
+export const AnimatedContent = AnimatedContentComponent;
 
-// Também disponibilizar como default
-export { TestComponentDefault as default };
+// Also provide default export
+export { AnimatedContentComponent as default };
 
-// Versão de teste
-export const ANIMATION_HUB_VERSION = "1.0.2-test";
+// Re-export types for convenience
+export type {
+  AnimationTypes,
+  AnimatedContentProps,
+  StaggerOptions,
+  ScrollTriggerOptions,
+} from "./types";
 
-// Para compatibilidade com a API original
-export const SUPPORTED_ANIMATIONS = ["test"];
-
-// Tipos básicos para compatibilidade
-export interface AnimatedContentProps {
-  children: React.ReactNode;
-  animation?: string;
-  [key: string]: unknown;
-}
+// Library metadata
+export const ANIMATION_HUB_VERSION = "1.0.4";
+export const SUPPORTED_ANIMATIONS = [
+  "fadeIn",
+  "slideUp",
+  "slideDown",
+  "slideLeft",
+  "slideRight",
+  "scaleIn",
+  "rotateIn",
+  "bounceIn",
+  "flipIn",
+  "zoomIn",
+  "morphIn",
+  "stagger",
+] as const;

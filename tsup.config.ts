@@ -13,6 +13,11 @@ export default defineConfig({
   treeshake: true,
   target: "es2020",
   tsconfig: "./tsconfig.lib.json",
+  outExtension({ format }) {
+    return {
+      js: format === "cjs" ? ".js" : ".mjs",
+    };
+  },
   esbuildOptions(options) {
     options.banner = {
       js: '"use client"',
