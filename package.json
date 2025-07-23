@@ -1,6 +1,6 @@
 {
   "name": "@gltz-packages/animation-hub",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Biblioteca profissional de animacoes corporativas para React com GSAP e TypeScript",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
