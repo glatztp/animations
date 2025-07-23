@@ -445,6 +445,189 @@ const AnimationDemoPage: React.FC = () => {
     setReloadKey((prev) => prev + 1);
   };
 
+  // Função para gerar código equivalente em Framer Motion
+  const generateFramerMotionCode = (
+    animation: string,
+    props: Record<string, unknown>
+  ): string => {
+    const {
+      duration = 1,
+      distance = 50,
+      scale = 0.5,
+      rotation = 45,
+      stagger = 0.2,
+    } = props;
+
+    switch (animation) {
+      case "fadeIn":
+        return `import { motion } from 'framer-motion';
+
+<motion.div
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: ${duration} }}
+>
+  <div>Conteúdo</div>
+</motion.div>`;
+
+      case "slideUp":
+        return `import { motion } from 'framer-motion';
+
+<motion.div
+  initial={{ opacity: 0, y: ${distance} }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: ${duration} }}
+>
+  <div>Conteúdo</div>
+</motion.div>`;
+
+      case "slideDown":
+        return `import { motion } from 'framer-motion';
+
+<motion.div
+  initial={{ opacity: 0, y: -${distance} }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: ${duration} }}
+>
+  <div>Conteúdo</div>
+</motion.div>`;
+
+      case "slideLeft":
+        return `import { motion } from 'framer-motion';
+
+<motion.div
+  initial={{ opacity: 0, x: ${distance} }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{ duration: ${duration} }}
+>
+  <div>Conteúdo</div>
+</motion.div>`;
+
+      case "slideRight":
+        return `import { motion } from 'framer-motion';
+
+<motion.div
+  initial={{ opacity: 0, x: -${distance} }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{ duration: ${duration} }}
+>
+  <div>Conteúdo</div>
+</motion.div>`;
+
+      case "scaleIn":
+        return `import { motion } from 'framer-motion';
+
+<motion.div
+  initial={{ opacity: 0, scale: ${scale} }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ duration: ${duration} }}
+>
+  <div>Conteúdo</div>
+</motion.div>`;
+
+      case "rotateIn":
+        return `import { motion } from 'framer-motion';
+
+<motion.div
+  initial={{ opacity: 0, rotate: ${rotation} }}
+  animate={{ opacity: 1, rotate: 0 }}
+  transition={{ duration: ${duration} }}
+>
+  <div>Conteúdo</div>
+</motion.div>`;
+
+      case "bounceIn":
+        return `import { motion } from 'framer-motion';
+
+<motion.div
+  initial={{ opacity: 0, scale: 0 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ 
+    duration: ${duration},
+    type: "spring",
+    bounce: 0.5
+  }}
+>
+  <div>Conteúdo</div>
+</motion.div>`;
+
+      case "flipIn":
+        return `import { motion } from 'framer-motion';
+
+<motion.div
+  initial={{ opacity: 0, rotateY: 90 }}
+  animate={{ opacity: 1, rotateY: 0 }}
+  transition={{ duration: ${duration} }}
+>
+  <div>Conteúdo</div>
+</motion.div>`;
+
+      case "zoomIn":
+        return `import { motion } from 'framer-motion';
+
+<motion.div
+  initial={{ opacity: 0, scale: 0.3 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ 
+    duration: ${duration},
+    type: "spring",
+    stiffness: 200
+  }}
+>
+  <div>Conteúdo</div>
+</motion.div>`;
+
+      case "morphIn":
+        return `import { motion } from 'framer-motion';
+
+<motion.div
+  initial={{ 
+    opacity: 0, 
+    scale: 0.8,
+    borderRadius: "50%"
+  }}
+  animate={{ 
+    opacity: 1, 
+    scale: 1,
+    borderRadius: "8px"
+  }}
+  transition={{ duration: ${duration} }}
+>
+  <div>Conteúdo</div>
+</motion.div>`;
+
+      case "stagger":
+        return `import { motion } from 'framer-motion';
+
+<div>
+  {[1, 2, 3].map((item, index) => (
+    <motion.div
+      key={item}
+      initial={{ opacity: 0, y: ${distance} }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ 
+        duration: 0.6,
+        delay: index * ${stagger}
+      }}
+    >
+      <div>Item {item}</div>
+    </motion.div>
+  ))}
+</div>`;
+
+      default:
+        return `import { motion } from 'framer-motion';
+
+<motion.div
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: ${duration} }}
+>
+  <div>Conteúdo</div>
+</motion.div>`;
+    }
+  };
+
   const AnimationDemo: React.FC<{
     name: string;
     description: string;
@@ -482,13 +665,29 @@ const AnimationDemoPage: React.FC = () => {
     variations = [],
   }) => {
     const [copied, setCopied] = useState(false);
+    const [copiedFramer, setCopiedFramer] = useState(false);
     const [demoKey, setDemoKey] = useState(0);
     const [selectedVariation, setSelectedVariation] = useState<number>(-1);
+    const [activeCodeTab, setActiveCodeTab] = useState<
+      "our-lib" | "framer-motion"
+    >("our-lib");
 
-    const copyToClipboard = () => {
-      navigator.clipboard.writeText(code);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+    const copyToClipboard = (
+      codeType: "our-lib" | "framer-motion" = "our-lib"
+    ) => {
+      const codeToClipboard =
+        codeType === "our-lib"
+          ? code
+          : generateFramerMotionCode(animation, props);
+      navigator.clipboard.writeText(codeToClipboard);
+
+      if (codeType === "our-lib") {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      } else {
+        setCopiedFramer(true);
+        setTimeout(() => setCopiedFramer(false), 2000);
+      }
     };
 
     const reloadDemo = () => {
@@ -810,26 +1009,6 @@ const AnimationDemoPage: React.FC = () => {
                   <ArrowsClockwise size={16} className="hidden sm:block" />
                   <span className="hidden sm:inline">Reload</span>
                 </button>
-                <button
-                  onClick={copyToClipboard}
-                  className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg transition-all flex items-center gap-2 hover-lift text-sm flex-1 sm:flex-initial justify-center ${
-                    copied ? "btn-primary text-white" : "btn-secondary"
-                  }`}
-                >
-                  {copied ? (
-                    <Check size={14} className="sm:hidden" />
-                  ) : (
-                    <Copy size={14} className="sm:hidden" />
-                  )}
-                  {copied ? (
-                    <Check size={16} className="hidden sm:block" />
-                  ) : (
-                    <Copy size={16} className="hidden sm:block" />
-                  )}
-                  <span className="hidden sm:inline">
-                    {copied ? "Copiado!" : "Copiar"}
-                  </span>
-                </button>
               </div>
             </div>
 
@@ -933,15 +1112,113 @@ const AnimationDemoPage: React.FC = () => {
 
               {/* Code */}
               <div className="space-y-3 sm:space-y-4">
-                <h4 className="text-base sm:text-lg font-semibold text-white flex items-center gap-2">
-                  <FileCode size={18} className="sm:hidden" />
-                  <FileCode size={20} className="hidden sm:block" />
-                  Código:
-                </h4>
-                <div className="bg-dark-900/80 rounded-lg sm:rounded-xl p-3 sm:p-4 overflow-x-auto border border-corporate-700/30">
-                  <pre className="text-accent-300 text-xs sm:text-sm font-mono leading-relaxed">
-                    <code>{code}</code>
-                  </pre>
+                <div className="flex items-center justify-between">
+                  <h4 className="text-base sm:text-lg font-semibold text-white flex items-center gap-2">
+                    <FileCode size={18} className="sm:hidden" />
+                    <FileCode size={20} className="hidden sm:block" />
+                    Código:
+                  </h4>
+
+                  {/* Tabs para alternar entre bibliotecas */}
+                  <div className="flex bg-corporate-800/50 rounded-lg p-1">
+                    <button
+                      onClick={() => setActiveCodeTab("our-lib")}
+                      className={`px-3 py-1 rounded text-xs sm:text-sm transition-all ${
+                        activeCodeTab === "our-lib"
+                          ? "bg-gradient-accent text-white shadow-glow-sm"
+                          : "text-corporate-300 hover:text-white"
+                      }`}
+                    >
+                      Nossa Lib
+                    </button>
+                    <button
+                      onClick={() => setActiveCodeTab("framer-motion")}
+                      className={`px-3 py-1 rounded text-xs sm:text-sm transition-all ${
+                        activeCodeTab === "framer-motion"
+                          ? "bg-gradient-accent text-white shadow-glow-sm"
+                          : "text-corporate-300 hover:text-white"
+                      }`}
+                    >
+                      Framer Motion
+                    </button>
+                  </div>
+                </div>
+
+                <div className="bg-dark-900/80 rounded-lg sm:rounded-xl border border-corporate-700/30 overflow-hidden">
+                  {/* Header com botão de copiar */}
+                  <div className="flex items-center justify-between p-3 border-b border-corporate-700/30 bg-corporate-900/30">
+                    <div className="flex items-center gap-2">
+                      {activeCodeTab === "our-lib" ? (
+                        <>
+                          <div className="w-2 h-2 bg-gradient-accent rounded-full"></div>
+                          <span className="text-corporate-300 text-xs sm:text-sm font-medium">
+                            @gltz-packages/animation-hub
+                          </span>
+                        </>
+                      ) : (
+                        <>
+                          <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                          <span className="text-corporate-300 text-xs sm:text-sm font-medium">
+                            framer-motion
+                          </span>
+                        </>
+                      )}
+                    </div>
+
+                    <button
+                      onClick={() => copyToClipboard(activeCodeTab)}
+                      className={`px-2 py-1 rounded text-xs transition-all flex items-center gap-1 ${
+                        (activeCodeTab === "our-lib" && copied) ||
+                        (activeCodeTab === "framer-motion" && copiedFramer)
+                          ? "text-green-400"
+                          : "text-corporate-400 hover:text-white"
+                      }`}
+                    >
+                      {(activeCodeTab === "our-lib" && copied) ||
+                      (activeCodeTab === "framer-motion" && copiedFramer) ? (
+                        <>
+                          <Check size={12} />
+                          <span>Copiado!</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy size={12} />
+                          <span>Copiar</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+
+                  {/* Conteúdo do código */}
+                  <div className="p-3 sm:p-4 overflow-x-auto">
+                    <pre className="text-accent-300 text-xs sm:text-sm font-mono leading-relaxed">
+                      <code>
+                        {activeCodeTab === "our-lib"
+                          ? code
+                          : generateFramerMotionCode(animation, props)}
+                      </code>
+                    </pre>
+                  </div>
+
+                  {/* Footer com informações adicionais */}
+                  <div className="px-3 pb-3">
+                    {activeCodeTab === "our-lib" ? (
+                      <div className="text-xs text-corporate-400 bg-corporate-900/20 rounded p-2">
+                        💡 <strong>Nossa biblioteca:</strong> Otimizada,
+                        TypeScript nativo, 12+ animações profissionais
+                      </div>
+                    ) : (
+                      <div className="text-xs text-corporate-400 bg-purple-900/20 rounded p-2">
+                        💡 <strong>Framer Motion:</strong> Popular biblioteca de
+                        animações para React
+                        <br />
+                        📦 Instalação:{" "}
+                        <code className="text-purple-300">
+                          npm install framer-motion
+                        </code>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
@@ -1016,7 +1293,6 @@ const AnimationDemoPage: React.FC = () => {
               <div className="space-y-4">
                 <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight">
                   Animações
-                 
                   <span className="block text-4xl md:text-5xl text-corporate-300 font-light">
                     de Alto Impacto
                   </span>
